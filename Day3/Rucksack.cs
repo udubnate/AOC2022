@@ -8,14 +8,19 @@ namespace Day3
 {
     internal class Rucksack
     {
-        List<char> compartmentFirst = new List<char>();
-        List<char> compartmentSecond = new List<char>();
+        public List<char> fullsack = new();
+        List<char> compartmentFirst = new();
+        List<char> compartmentSecond = new();
 
         const int lowercaseFix = 96;
         const int uppercaseFix = 38;
 
         public Rucksack(string input)
         {
+
+            // fullsack to list
+            fullsack = input.ToList<char>();
+
             int count = 0;
             foreach (char c in input)
             {
@@ -46,6 +51,19 @@ namespace Day3
             {
                 return (int)c - uppercaseFix;
             } else
+            {
+                return (int)c - lowercaseFix;
+            }
+        }
+
+        public int getMagicNumber(char c)
+        {
+
+            if (Char.IsUpper(c))
+            {
+                return (int)c - uppercaseFix;
+            }
+            else
             {
                 return (int)c - lowercaseFix;
             }

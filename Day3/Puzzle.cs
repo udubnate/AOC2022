@@ -31,5 +31,21 @@ namespace Day3
             return magicItems.Sum();
 
         }
+
+        public int Part2()
+        {
+            List<int> Matches = new();
+
+            for (int i = 0; i < rucksacks.Count; i += 3)
+            { 
+                var matchingSack  = rucksacks[i].fullsack.Intersect(rucksacks[i + 1].fullsack);
+                var allMatches = matchingSack.Intersect(rucksacks[i+2].fullsack).ToArray();
+                Matches.Add(rucksacks[i].getMagicNumber(allMatches[0]));
+           
+            }
+            return Matches.Sum();
+        }
+
+
     }
 }

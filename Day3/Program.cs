@@ -9,5 +9,6 @@ Puzzle p = new Puzzle(input);
 
 Console.WriteLine("Part One answer is : {0}", p.Part1());
 
+Console.WriteLine("Part Two answer is : {0}", p.Part2());
 
 Console.ReadLine();
